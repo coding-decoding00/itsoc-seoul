@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/shkim/Downloads/index.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ITSoc Seoul Section Chapter</title>
-<link href="./ITSoc Seoul Section Chapter_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --itsoc-blue: #00a0e3;
@@ -234,6 +233,16 @@
     line-height: 1.4;
   }
 
+  .news-body h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .news-body h3 a:hover {
+    color: var(--itsoc-blue);
+  }
+
   .news-body p {
     font-size: 13px;
     color: var(--text-light);
@@ -254,6 +263,31 @@
   .tag-event { background: rgba(0,160,227,0.1); color: var(--itsoc-blue); }
   .tag-award { background: rgba(234,179,8,0.12); color: #b8860b; }
   .tag-notice { background: rgba(107,114,128,0.1); color: var(--text-light); }
+
+  .news-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--itsoc-blue);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .news-link:hover {
+    gap: 8px;
+  }
+
+  .news-link svg {
+    width: 14px; height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
 
   /* ===== OFFICERS PAGE ===== */
   .officers-hero {
@@ -384,15 +418,15 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="logo-group">
-      <img src="./ITSoc Seoul Section Chapter_files/logo.png" alt="ITSoc Logo">
+      <img src="./logo.png" alt="ITSoc Logo">
       <div class="logo-title">
         <div class="main">ITSoc Seoul Section Chapter</div>
         <div class="sub">IEEE Information Theory Society</div>
       </div>
     </div>
     <div class="nav-tabs">
-      <button class="nav-tab active" onclick="showPage(&#39;home&#39;)">Home</button>
-      <button class="nav-tab" onclick="showPage(&#39;officers&#39;)">Officers</button>
+      <button class="nav-tab active" onclick="showPage('home')">Home</button>
+      <button class="nav-tab" onclick="showPage('officers')">Officers</button>
     </div>
   </div>
 </div>
@@ -416,15 +450,18 @@
       <div class="news-item">
         <div class="news-date">
           <div class="month">Apr</div>
-          <div class="day">18</div>
+          <div class="day">17</div>
           <div class="year">2026</div>
         </div>
         <div class="news-body">
           <div class="news-tag tag-award">Workshop</div>
-          <h3>2026 CIT workshop</h3>
-          <p>2026 First coding and information theory workshop will be held at Yeosu, The Ocean Resort.</p>
+          <h3><a href="workshop.html">2026 CIT Workshop</a></h3>
+          <p>2026 First Coding and Information Theory Workshop will be held at Yeosu, The Ocean Resort. Celebrating the 30th anniversary of the KICS Coding and Information Theory Research Group.</p>
+          <a href="workshop.html" class="news-link">View program <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div><div class="news-item">
+      </div>
+
+      <div class="news-item">
         <div class="news-date">
           <div class="month">Jun</div>
           <div class="day">28</div>
@@ -432,18 +469,10 @@
         </div>
         <div class="news-body">
           <div class="news-tag tag-event">Conference</div>
-          <h3>ISIT 2026 — Guangzhou, China</h3>
-          <p>2026 IEEE International Symposium on Information Theory wil be held from June 28th to July 3rd. Registration is open.</p>
+          <h3>ISIT 2026 &mdash; Guangzhou, China</h3>
+          <p>2026 IEEE International Symposium on Information Theory will be held from June 28th to July 3rd. Registration is open.</p>
         </div>
       </div>
-
-      
-
-      
-
-      
-
-      
 
     </div>
   </div>
@@ -479,9 +508,6 @@
       </div>
     </div>
 
-    
-    
-
     <p style="margin-top: 40px; font-size: 13px; color: var(--text-light); text-align: center;">
       Chapter Officer info will be updated soon.<br>
     </p>
@@ -490,7 +516,7 @@
 </div>
 
 <footer>
-  © 2026 IEEE Information Theory Society Seoul Section Chapter ·
+  &copy; 2026 IEEE Information Theory Society Seoul Section Chapter &middot;
   <a href="https://www.itsoc.org/">itsoc.org</a>
 </footer>
 
@@ -503,7 +529,5 @@ function showPage(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
-
-
 
 </body></html>
