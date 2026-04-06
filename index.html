@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/shkim/Downloads/ITSoc%20Seoul%20Section%20Chapter.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITSoc Seoul Section Chapter</title>
+<link href="./ITSoc Seoul Section Chapter_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --itsoc-blue: #00a0e3;
+    --itsoc-dark: #1a1a2e;
+    --bg: #f7f8fa;
+    --white: #ffffff;
+    --text: #2c2c3a;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+    --accent-hover: #008cc7;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --card-shadow-hover: 0 4px 12px rgba(0,160,227,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ===== TOP NAV ===== */
+  .navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-group img {
+    height: 42px;
+    width: auto;
+  }
+
+  .logo-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .logo-title .main {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--itsoc-dark);
+    letter-spacing: -0.2px;
+  }
+
+  .logo-title .sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-light);
+    letter-spacing: 0.3px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    height: 64px;
+  }
+
+  .nav-tab {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: inherit;
+  }
+
+  .nav-tab:hover {
+    color: var(--itsoc-blue);
+  }
+
+  .nav-tab.active {
+    color: var(--itsoc-blue);
+    border-bottom-color: var(--itsoc-blue);
+    font-weight: 600;
+  }
+
+  /* ===== PAGES ===== */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ===== HOME / HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--itsoc-dark) 0%, #16213e 50%, #1a1a2e 100%);
+    padding: 56px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,160,227,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .hero h1 span { color: var(--itsoc-blue); }
+
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    position: relative;
+  }
+
+  /* ===== NEWS ===== */
+  .content-area {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-header .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--itsoc-blue);
+  }
+
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .news-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: all 0.25s;
+    box-shadow: var(--card-shadow);
+  }
+
+  .news-item:hover {
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(0,160,227,0.3);
+    transform: translateY(-1px);
+  }
+
+  .news-date {
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 52px;
+  }
+
+  .news-date .month {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--itsoc-blue);
+    letter-spacing: 1px;
+  }
+
+  .news-date .day {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .news-date .year {
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  .news-body h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .news-body p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .news-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+
+  .tag-event { background: rgba(0,160,227,0.1); color: var(--itsoc-blue); }
+  .tag-award { background: rgba(234,179,8,0.12); color: #b8860b; }
+  .tag-notice { background: rgba(107,114,128,0.1); color: var(--text-light); }
+
+  /* ===== OFFICERS PAGE ===== */
+  .officers-hero {
+    background: linear-gradient(135deg, var(--itsoc-dark) 0%, #16213e 100%);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .officers-hero h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .officers-hero p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+
+  .officer-section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    margin-top: 36px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .officer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .officer-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.25s;
+  }
+
+  .officer-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(0,160,227,0.3);
+  }
+
+  .officer-card.chair {
+    border-left: 3px solid var(--itsoc-blue);
+  }
+
+  .officer-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f4fd, #d1ecfa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--itsoc-blue);
+    flex-shrink: 0;
+  }
+
+  .officer-card.chair .officer-avatar {
+    background: linear-gradient(135deg, var(--itsoc-blue), var(--accent-hover));
+    color: #fff;
+  }
+
+  .officer-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .officer-role {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 1px;
+  }
+
+  .officer-affil {
+    font-size: 11px;
+    color: var(--text-light);
+    opacity: 0.7;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  footer a { color: var(--itsoc-blue); text-decoration: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .navbar-inner { padding: 0 16px; }
+    .logo-title .main { font-size: 13px; }
+    .logo-title .sub { font-size: 10px; }
+    .nav-tab { padding: 0 14px; font-size: 13px; }
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 22px; }
+    .content-area { padding: 28px 16px 60px; }
+    .officer-grid { grid-template-columns: 1fr; }
+    .news-item { flex-direction: column; gap: 10px; }
+    .news-date { text-align: left; display: flex; gap: 6px; align-items: baseline; }
+    .news-date .day { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="logo-group">
+      <img src="./ITSoc Seoul Section Chapter_files/logo.png" alt="ITSoc Logo">
+      <div class="logo-title">
+        <div class="main">ITSoc Seoul Section Chapter</div>
+        <div class="sub">IEEE Information Theory Society</div>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage(&#39;home&#39;)">Home</button>
+      <button class="nav-tab" onclick="showPage(&#39;officers&#39;)">Officers</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <h1>IEEE <span>Information Theory</span> Society</h1>
+    <p>Seoul Section Chapter</p>
+  </div>
+
+  <div class="content-area">
+    <div class="section-header">
+      <div class="dot"></div>
+      <h2>News</h2>
+    </div>
+
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="news-date">
+          <div class="month">Apr</div>
+          <div class="day">18</div>
+          <div class="year">2026</div>
+        </div>
+        <div class="news-body">
+          <div class="news-tag tag-award">Workshop</div>
+          <h3>2026 CIT workshop</h3>
+          <p>2026 First coding and information theory workshop will be held at Yeosu, The Ocean Resort.</p>
+        </div>
+      </div><div class="news-item">
+        <div class="news-date">
+          <div class="month">Jun</div>
+          <div class="day">28</div>
+          <div class="year">2026</div>
+        </div>
+        <div class="news-body">
+          <div class="news-tag tag-event">Conference</div>
+          <h3>ISIT 2026 — Guangzhou, China</h3>
+          <p>2026 IEEE International Symposium on Information Theory wil be held from June 28th to July 3rd. Registration is open.</p>
+        </div>
+      </div>
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== OFFICERS PAGE ===== -->
+<div id="page-officers" class="page">
+
+  <div class="officers-hero">
+    <h1>Officers</h1>
+    <p>2026 Seoul Section Chapter Leadership</p>
+  </div>
+
+  <div class="content-area">
+
+    <div class="officer-section-label">Chapter Officers</div>
+    <div class="officer-grid">
+      <div class="officer-card chair">
+        <div class="officer-avatar">CH</div>
+        <div>
+          <div class="officer-name">Chapter Chair</div>
+          <div class="officer-role">Chair</div>
+          <div class="officer-affil">Sang-Hyo Kim (SKKU)</div>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-avatar">SE</div>
+        <div>
+          <div class="officer-name">Secretary</div>
+          <div class="officer-role">Secretary</div>
+          <div class="officer-affil">TBD</div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    <p style="margin-top: 40px; font-size: 13px; color: var(--text-light); text-align: center;">
+      Chapter Officer info will be updated soon.<br>
+    </p>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 IEEE Information Theory Society Seoul Section Chapter ·
+  <a href="https://www.itsoc.org/">itsoc.org</a>
+</footer>
+
+<script>
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+
+
+</body></html>
